@@ -184,6 +184,10 @@ public final class Matrix3 {
         );
     }
 
+    public Matrix3 rotateXAxis(float rad) {
+        return this.rotateXAxis((float) Math.sin(rad), (float) Math.cos((rad)));
+    }
+
     public Matrix3 rotateYAxis(float sin, float cos) {
         return this.multiplyWithLeft(
                 cos, -sin, 0,
@@ -192,12 +196,20 @@ public final class Matrix3 {
         );
     }
 
+    public Matrix3 rotateYAxis(float rad) {
+        return this.rotateYAxis((float) Math.sin(rad), (float) Math.cos((rad)));
+    }
+
     public Matrix3 rotateZAxis(float sin, float cos) {
         return this.multiplyWithLeft(
                 cos, 0, sin,
                 0, 1, 0,
                 -sin, 0, cos
         );
+    }
+
+    public Matrix3 rotateZAxis(float rad) {
+        return this.rotateZAxis((float) Math.sin(rad), (float) Math.cos((rad)));
     }
 
     public void transform(Vector vector) {
