@@ -1,5 +1,6 @@
 package com.acrylic.animatedmc.math;
 
+import org.bukkit.Location;
 import org.bukkit.util.Vector;
 
 public final class Matrix3 {
@@ -217,6 +218,13 @@ public final class Matrix3 {
         vector.setX((x * r1c1) + (y * r1c2) + (z * r1c3))
                 .setY((x * r2c1) + (y * r2c1) + (z * r2c3))
                 .setZ((x * r3c1) + (y * r3c2) + (z * r3c3));
+    }
+
+    public void transform(Location location) {
+        double x = location.getX(), y = location.getY(), z = location.getZ();
+        location.setX((x * r1c1) + (y * r1c2) + (z * r1c3));
+        location.setY((x * r2c1) + (y * r2c1) + (z * r2c3));
+        location.setZ((x * r3c1) + (y * r3c2) + (z * r3c3));
     }
 
 }
