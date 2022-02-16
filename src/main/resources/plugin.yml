@@ -1,0 +1,4 @@
+name: Animated Mc
+version: '${project.version}'
+main: com.acrylic.animatedmc.AnimatedMc
+api-version: 1.18
