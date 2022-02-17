@@ -1,17 +1,13 @@
 package com.acrylic.animatedmc;
 
-import org.bukkit.plugin.java.JavaPlugin;
+import com.acrylic.animatedmc.commands.GeometryCommands;
+import me.lucko.helper.plugin.ExtendedJavaPlugin;
 
-public final class AnimatedMc extends JavaPlugin {
-
-    @Override
-    public void onEnable() {
-        // Plugin startup logic
-
-    }
+public final class AnimatedMc extends ExtendedJavaPlugin {
 
     @Override
-    public void onDisable() {
-        // Plugin shutdown logic
+    public void enable() {
+       new GeometryCommands(this).registerAll();
     }
+
 }

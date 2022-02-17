@@ -7,6 +7,6 @@ public interface Transformable {
     @Nullable
     Matrix3 getTransformationMatrix();
 
-    void setTransformationMatrix(Matrix3 matrix);
+    void setTransformationMatrix(@Nullable Matrix3 matrix);
 
 }

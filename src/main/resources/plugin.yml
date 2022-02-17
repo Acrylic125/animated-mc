@@ -2,3 +2,5 @@ name: AnimatedMc
 version: '${project.version}'
 main: com.acrylic.animatedmc.AnimatedMc
 api-version: 1.18
+depend:
+  - helper

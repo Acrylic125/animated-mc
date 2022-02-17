@@ -70,7 +70,7 @@ public class Circle
     }
 
     @Override
-    public void setTransformationMatrix(Matrix3 matrix) {
+    public void setTransformationMatrix(@Nullable Matrix3 matrix) {
         this.matrix = matrix;
     }
 }
