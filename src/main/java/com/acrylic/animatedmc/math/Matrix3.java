@@ -185,23 +185,11 @@ public final class Matrix3 {
         );
     }
 
-    public Matrix3 rotateXAxis(float rad) {
+    public Matrix3 rotateXAxis(double rad) {
         return this.rotateXAxis((float) Math.sin(rad), (float) Math.cos((rad)));
     }
 
     public Matrix3 rotateYAxis(float sin, float cos) {
-        return this.multiplyWithLeft(
-                cos, -sin, 0,
-                sin, cos, 0,
-                0, 0, 1
-        );
-    }
-
-    public Matrix3 rotateYAxis(float rad) {
-        return this.rotateYAxis((float) Math.sin(rad), (float) Math.cos((rad)));
-    }
-
-    public Matrix3 rotateZAxis(float sin, float cos) {
         return this.multiplyWithLeft(
                 cos, 0, sin,
                 0, 1, 0,
@@ -209,8 +197,25 @@ public final class Matrix3 {
         );
     }
 
-    public Matrix3 rotateZAxis(float rad) {
+    public Matrix3 rotateYAxis(double rad) {
+        return this.rotateYAxis((float) Math.sin(rad), (float) Math.cos((rad)));
+    }
+
+    public Matrix3 rotateZAxis(float sin, float cos) {
+        return this.multiplyWithLeft(
+                cos, -sin, 0,
+                sin, cos, 0,
+                0, 0, 1
+        );
+    }
+
+    public Matrix3 rotateZAxis(double rad) {
         return this.rotateZAxis((float) Math.sin(rad), (float) Math.cos((rad)));
+    }
+
+    public Matrix3 rotateByYawAndPitch(float yaw, float pitch) {
+        return this.rotateXAxis(Math.toRadians((pitch * -1) - 90))
+                   .rotateYAxis(Math.toRadians(yaw * -1));
     }
 
     public void transform(Vector vector) {
@@ -227,4 +232,12 @@ public final class Matrix3 {
         location.setZ((x * r3c1) + (y * r3c2) + (z * r3c3));
     }
 
+    @Override
+    public String toString() {
+        return "Matrix3{\n" +
+                r1c1 + ", " + r1c2 + ","  + r1c3 + "\n" +
+                r2c1 + ", " + r2c2 + ","  + r2c3 + "\n" +
+                r3c1 + ", " + r3c2 + ","  + r3c3 + "\n" +
+                '}';
+    }
 }
