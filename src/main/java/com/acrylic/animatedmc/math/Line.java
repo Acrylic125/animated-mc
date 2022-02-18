@@ -14,8 +14,9 @@ public class Line implements Geometry {
         this.origin = origin;
     }
 
-    public void setToLocation(Location location) {
+    public void setToLocation(Location location, int interpolationPoints) {
         Location difference = location.clone().subtract(origin);
+        difference.multiply(1.0 / interpolationPoints);
         this.deltaX = difference.getX();
         this.deltaY = difference.getY();
         this.deltaZ = difference.getZ();
@@ -28,11 +29,10 @@ public class Line implements Geometry {
 
     @Override
     public Location step(int index) {
-        double percent = index / (double) interpolationPoints;
         return new Location(origin.getWorld(),
-                origin.getX() + (deltaX * percent),
-                origin.getY() + (deltaY * percent),
-                origin.getZ() + (deltaZ * percent)
+                origin.getX() + (deltaX * index),
+                origin.getY() + (deltaY * index),
+                origin.getZ() + (deltaZ * index)
         );
     }
 
