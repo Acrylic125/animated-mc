@@ -1,6 +1,7 @@
 package com.acrylic.animatedmc.geometry;
 
 import org.bukkit.Location;
+import org.bukkit.util.Vector;
 
 public class Line implements Geometry {
 
@@ -31,6 +32,16 @@ public class Line implements Geometry {
                 origin.getY() + (deltaY * index),
                 origin.getZ() + (deltaZ * index)
         );
+    }
+
+    public void setDelta(Vector delta) {
+        setDeltaX(delta.getX());
+        setDeltaY(delta.getY());
+        setDeltaZ(delta.getZ());
+    }
+
+    public Vector getDeltaVector() {
+        return new Vector(deltaX, deltaY, deltaZ);
     }
 
     public double getDeltaX() {
