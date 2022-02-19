@@ -41,7 +41,7 @@ public class QuadraticYLine extends Line {
 
     @Override
     public Location step(int index) {
-        Vector deltaVector = getDeltaVector().clone().setY(calculateY(index));
+        Vector deltaVector = getDeltaVector().clone().multiply(index).setY(calculateY(index));
         @Nullable Location origin = getOrigin();
 
         assert origin != null;
