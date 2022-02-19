@@ -1,5 +1,6 @@
-package com.acrylic.animatedmc.math;
+package com.acrylic.animatedmc.geometry;
 
+import com.acrylic.animatedmc.math.Matrix3;
 import org.bukkit.Location;
 import org.jetbrains.annotations.Nullable;
 

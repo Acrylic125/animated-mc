@@ -1,4 +1,4 @@
-package com.acrylic.animatedmc.math;
+package com.acrylic.animatedmc.geometry;
 
 import org.bukkit.Location;
 

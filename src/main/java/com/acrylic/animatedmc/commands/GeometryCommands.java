@@ -1,15 +1,12 @@
 package com.acrylic.animatedmc.commands;
 
-import com.acrylic.animatedmc.math.Circle;
+import com.acrylic.animatedmc.geometry.Circle;
 import com.acrylic.animatedmc.math.Matrix3;
-import com.acrylic.animatedmc.math.Spiral;
+import com.acrylic.animatedmc.geometry.Spiral;
 import me.lucko.helper.Commands;
-import me.lucko.helper.command.functional.FunctionalCommandBuilder;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
-import org.bukkit.block.Block;
-import org.bukkit.block.data.BlockData;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -54,10 +51,7 @@ public class GeometryCommands {
                     spiral.setOrigin(location);
                     spiral.setArms(3);
 
-                    Matrix3 matrix = Matrix3.create()
-                            .rotateXAxis(Math.toRadians((location.getPitch() * -1) - 90))
-                            .rotateYAxis(Math.toRadians(location.getYaw() * -1))
-                            ;
+                    Matrix3 matrix = Matrix3.create().rotateByYawAndPitch(location.getYaw(), location.getPitch());
                     Bukkit.broadcastMessage(matrix.toString());
 
                     spiral.setTransformationMatrix(matrix);
