@@ -1,14 +1,11 @@
-package com.acrylic.animatedmc.math;
+package com.acrylic.animatedmc.geometry;
 
 import org.bukkit.Location;
 
 public class Line implements Geometry {
 
     private Location origin;
-    private int interpolationPoints = 10;
-    private double deltaX;
-    private double deltaY;
-    private double deltaZ;
+    private double deltaX, deltaY, deltaZ;
 
     public void setOrigin(Location origin) {
         this.origin = origin;
@@ -34,14 +31,6 @@ public class Line implements Geometry {
                 origin.getY() + (deltaY * index),
                 origin.getZ() + (deltaZ * index)
         );
-    }
-
-    public int getInterpolationPoints() {
-        return interpolationPoints;
-    }
-
-    public void setInterpolationPoints(int interpolationPoints) {
-        this.interpolationPoints = interpolationPoints;
     }
 
     public double getDeltaX() {
